@@ -110,7 +110,7 @@ tree|Tree
 }
 tree|TreeItemRenderer.light
 {
-	icon: Embed("//assets/images/weather_sun.png");
+	icon: Embed("/assets/images/weather_sun.png");
 }
 tree|TreeItemRenderer.lightPicker
 {
