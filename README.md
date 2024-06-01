@@ -1,6 +1,6 @@
 # Away Builder
 
-# How to build
+## How to build
 1. Follow this guide to install the [Apache Flex SDK with AIR](https://joshblog.net/2024/how-to-install-apache-flex-with-adobe-air-from-harman/)
 2. Run `git clone https://github.com/Away3D/away3d-core-fp11 -b dev` inside this repo
 3. Install the VSCode Extension "AS3 & MXML" by Bowler Hat
