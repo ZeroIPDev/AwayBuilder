@@ -126,7 +126,7 @@
 			</controls:CrutchScroller>
 			
 			<s:Button id="addNewButton" left="0" right="0" bottom="-26" label="{hostComponent.newItemLabel}" height="24"
-					  icon="@Embed('assets/images/add.png')" skinClass="awaybuilder.view.skins.DropdownAddButtonSkin" cornerRadius="0"  />
+					  icon="@Embed('/assets/images/add.png')" skinClass="awaybuilder.view.skins.DropdownAddButtonSkin" cornerRadius="0"  />
 		</s:Group>
 	</s:PopUpAnchor>
 	<!---  The default skin is DropDownListButtonSkin.

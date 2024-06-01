@@ -78,7 +78,7 @@
 		
 	]]></fx:Script>
 	<s:HGroup width="100%" verticalAlign="middle" paddingLeft="3" height="23" paddingTop="1">
-		<s:BitmapImage id="iconButton" source="@Embed('assets/images/walk.png')" visible="true" visible.normal="false" alpha.hovered="0.5"/>
+		<s:BitmapImage id="iconButton" source="@Embed('/assets/images/walk.png')" visible="true" visible.normal="false" alpha.hovered="0.5"/>
 		<s:Label text="{_animation.name}" fontWeight="bold" width="100%"/>
 		<s:Button styleName="editSharedObjectButtonStyle" width="23" height="100%" click="editSubmeshMaterialButton_clickHandler(event)"/>
 	</s:HGroup>

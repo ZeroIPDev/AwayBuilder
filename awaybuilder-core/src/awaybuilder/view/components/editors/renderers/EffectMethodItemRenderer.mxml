@@ -43,7 +43,7 @@
 		</s:fill>
 	</s:Rect>
 	
-	<!--<s:BitmapImage id="iconButton" source="@Embed('assets/images/box_closed.png')"/>-->
+	<!--<s:BitmapImage id="iconButton" source="@Embed('/assets/images/box_closed.png')"/>-->
 	<s:Label id="labelDisplay" text="{_effectMethod.toString()}" color.hovered="0xEEEEEE" paddingTop="1" width="100%"/>
 	<s:Button id="editSubmeshMaterialButton" styleName="editSharedObjectButtonStyle"
 			  width="22" height="22" click="editSubmeshMaterialButton_clickHandler(event)"/>

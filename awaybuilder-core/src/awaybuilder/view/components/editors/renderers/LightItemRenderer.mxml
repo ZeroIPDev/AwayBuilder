@@ -44,7 +44,7 @@
 		</s:fill>
 	</s:Rect>
 	
-	<s:BitmapImage id="iconButton" source="@Embed('assets/images/weather_sun.png')"/>
+	<s:BitmapImage id="iconButton" source="@Embed('//assets/images/weather_sun.png')"/>
 	<s:Label id="labelDisplay" text="{_light.name}" color.hovered="0xEEEEEE" paddingTop="1" width="100%"/>
 	<s:Button id="editSubmeshMaterialButton" styleName="editSharedObjectButtonStyle"
 			  width="22" height="22" click="editSubmeshMaterialButton_clickHandler(event)"/>

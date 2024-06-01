@@ -25,7 +25,7 @@
 		]]>
 	</fx:Script>
 	
-	<s:BitmapImage id="iconButton" source="@Embed('assets/images/box_closed.png')"/>
+	<s:BitmapImage id="iconButton" source="@Embed('/assets/images/box_closed.png')"/>
 	<s:Label id="labelDisplay" text="{label}"  color.hovered="0xEEEEEE" paddingTop="1" width="100%"/>
 	<s:Button id="editSubmeshMaterialButton" styleName="editSharedObjectButtonStyle"
 			  width="24" height="24" click="editSubmeshMaterialButton_clickHandler(event)"/>

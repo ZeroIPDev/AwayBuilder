@@ -3,6 +3,7 @@ package awaybuilder.model.vo.scene
 	import awaybuilder.model.vo.scene.interfaces.IShared;
 	
 	import mx.events.PropertyChangeEvent;
+	import flash.events.IEventDispatcher;
 
 	[Bindable]
 	public class SharedAnimationNodeVO extends AnimationNodeVO implements IShared

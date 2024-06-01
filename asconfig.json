@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		"output": "awaybuilder-desktop/bin-release/AwayBuilderApplication.swf",
+		"accessible": true,
+		"source-path": [
+			"away3d-core-fp11/src",
+			"awaybuilder-core/src",
+			"awaybuilder-desktop/src"
+		],
+		"library-path": [
+			"awaybuilder-core/libs"
+		],
+		"defaults-css-files": [
+			"awaybuilder-desktop/src/desktop_styles.css",
+			"awaybuilder-core/src/defaults.css"
+		]
+	},
+	"mainClass": "AwayBuilderApplication",
+	"application": "awaybuilder-desktop/src/AwayBuilderApplication-app.xml",
+	"copySourcePathAssets": true,
+	"config": "air"
+}

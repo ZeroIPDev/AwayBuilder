@@ -2,6 +2,7 @@
 bin/
 bin-debug/
 bin-release-temp/
+bin-release/
 out/
 
 # Project property files
@@ -18,3 +19,5 @@ output.txt
 # compiled
 .air
 .exe
+.vscode/settings.json
+away3d-core-fp11

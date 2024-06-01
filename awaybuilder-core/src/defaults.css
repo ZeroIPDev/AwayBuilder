@@ -110,75 +110,75 @@ tree|Tree
 }
 tree|TreeItemRenderer.light
 {
-	icon: Embed("assets/images/weather_sun.png");
+	icon: Embed("//assets/images/weather_sun.png");
 }
 tree|TreeItemRenderer.lightPicker
 {
-	icon: Embed("assets/images/category.png");
+	icon: Embed("/assets/images/category.png");
 }
 tree|TreeItemRenderer.default
 {
-	icon: Embed("assets/images/plugin.png");
+	icon: Embed("/assets/images/plugin.png");
 }
 tree|TreeItemRenderer.texture
 {
-	icon: Embed("assets/images/map.png");
+	icon: Embed("/assets/images/map.png");
 }
 tree|TreeItemRenderer.material
 {
-	icon: Embed("assets/images/block.png");
+	icon: Embed("/assets/images/block.png");
 }
 tree|TreeItemRenderer.geometry
 {
-	icon: Embed("assets/images/origami.png");
+	icon: Embed("/assets/images/origami.png");
 }
 tree|TreeItemRenderer.skeleton
 {
-	icon: Embed("assets/images/skull.png");
+	icon: Embed("/assets/images/skull.png");
 }
 tree|TreeItemRenderer.mesh
 {
-	icon: Embed("assets/images/mesh_box_closed.png");
+	icon: Embed("/assets/images/mesh_box_closed.png");
 }
 tree|TreeItemRenderer.container
 {
-	icon: Embed("assets/images/box_closed.png");
+	icon: Embed("/assets/images/box_closed.png");
 }
 tree|TreeItemRenderer.animationNode
 {
-	icon: Embed("assets/images/film-medium.png");
+	icon: Embed("/assets/images/film-medium.png");
 }
 tree|TreeItemRenderer.animationSet
 {
-	icon: Embed("assets/images/inbox-film.png");
+	icon: Embed("/assets/images/inbox-film.png");
 }
 tree|TreeItemRenderer.animator
 {
-	icon: Embed("assets/images/walk.png");
+	icon: Embed("/assets/images/walk.png");
 }
 tree|TreeItemRenderer.bear
 {
-	icon: Embed("assets/images/teddy_bear.png");
+	icon: Embed("/assets/images/teddy_bear.png");
 }
 tree|TreeItemRenderer.shadow
 {
-	icon: Embed("assets/images/blue-document-attribute-s.png");
+	icon: Embed("/assets/images/blue-document-attribute-s.png");
 }
 tree|TreeItemRenderer.effect
 {
-	icon: Embed("assets/images/blue-document-attribute-e.png");
+	icon: Embed("/assets/images/blue-document-attribute-e.png");
 }
 tree|TreeItemRenderer.skyBox
 {
-	icon: Embed("assets/images/weather_clouds.png");
+	icon: Embed("/assets/images/weather_clouds.png");
 }
 tree|TreeItemRenderer.camera
 {
-	icon: Embed("assets/images/camera.png");
+	icon: Embed("/assets/images/camera.png");
 }
 tree|TreeItemRenderer.lens
 {
-	icon: Embed("assets/images/camera-lens.png");
+	icon: Embed("/assets/images/camera-lens.png");
 }
 
 s|NumericStepper
@@ -263,206 +263,206 @@ s|RadioButton.toolbarButton
 
 .toolbarButton#newDocumentButton
 {
-	icon: Embed("assets/images/page_white_star.png");
+	icon: Embed("/assets/images/page_white_star.png");
 }
 
 .toolbarButton#openDocumentButton
 {
-	icon: Embed("assets/images/folder_page_white.png");
+	icon: Embed("/assets/images/folder_page_white.png");
 }
 .toolbarButton#importDocumentButton
 {
-	icon: Embed("assets/images/document-import.png");
+	icon: Embed("/assets/images/document-import.png");
 }
 .toolbarButton#saveDocumentButton
 {
-	icon: Embed("assets/images/disk.png");
+	icon: Embed("/assets/images/disk.png");
 }
 
 .toolbarButton#printDocumentButton
 {
-	icon: Embed("assets/images/printer.png");
+	icon: Embed("/assets/images/printer.png");
 }
 
 .toolbarButton#undoButton
 {
-	icon: Embed("assets/images/arrow_undo.png");
+	icon: Embed("/assets/images/arrow_undo.png");
 }
 
 .toolbarButton#redoButton
 {
-	icon: Embed("assets/images/arrow_redo.png");
+	icon: Embed("/assets/images/arrow_redo.png");
 }
 
 .toolbarButton#zoomInButton
 {
-	icon: Embed("assets/images/zoom_in.png");
+	icon: Embed("/assets/images/zoom_in.png");
 }
 
 .toolbarButton#zoomOutButton
 {
-	icon: Embed("assets/images/zoom_out.png");
+	icon: Embed("/assets/images/zoom_out.png");
 }
 
 .toolbarButton#helpButton
 {
-	icon: Embed("assets/images/help.png");
+	icon: Embed("/assets/images/help.png");
 }
 
 .toolbarButton#applicationSettingsButton
 {
-	icon: Embed("assets/images/cog.png");
+	icon: Embed("/assets/images/cog.png");
 }
 
 .toolbarButton#documentSettingsButton
 {
-	icon: Embed("assets/images/page_white_gear.png");
+	icon: Embed("/assets/images/page_white_gear.png");
 }
 
 .toolbarButton#statsButton
 {
-	icon: Embed("assets/images/information.png");
+	icon: Embed("/assets/images/information.png");
 }
 
 .toolbarButton#cutButton
 {
-	icon: Embed("assets/images/cut.png");
+	icon: Embed("/assets/images/cut.png");
 }
 
 .toolbarButton#copyButton
 {
-	icon: Embed("assets/images/page_copy.png");
+	icon: Embed("/assets/images/page_copy.png");
 }
 
 .toolbarButton#pasteButton
 {
-	icon: Embed("assets/images/paste_plain.png");
+	icon: Embed("/assets/images/paste_plain.png");
 }
 
 .toolbarButton#deleteButton
 {
-	icon: Embed("assets/images/delete.png");
+	icon: Embed("/assets/images/delete.png");
 }
 
 .toolbarButton#rotateClockwiseButton
 {
-	icon: Embed("assets/images/shape_rotate_clockwise.png");
+	icon: Embed("/assets/images/shape_rotate_clockwise.png");
 }
 
 .toolbarButton#rotateCounterClockwiseButton
 {
-	icon: Embed("assets/images/shape_rotate_anticlockwise.png");
+	icon: Embed("/assets/images/shape_rotate_anticlockwise.png");
 }
 
 .toolbarButton#targetCameraButton
 {
-	icon: Embed("assets/images/cursor.png");
+	icon: Embed("/assets/images/cursor.png");
 }
 
 .toolbarButton#freeCameraButton
 {
-	icon: Embed("assets/images/hand.png");
+	icon: Embed("/assets/images/hand.png");
 }
 .toolbarButton#translateButton
 {
-	icon: Embed("assets/images/arrow_nsew.png");
+	icon: Embed("/assets/images/arrow_nsew.png");
 }
 .toolbarButton#rotateButton
 {
-	icon: Embed("assets/images/arrow_rotate_anticlockwise.png");
+	icon: Embed("/assets/images/arrow_rotate_anticlockwise.png");
 }
 .toolbarButton#scaleButton
 {
-	icon: Embed("assets/images/arrow_out_longer.png");
+	icon: Embed("/assets/images/arrow_out_longer.png");
 }
 
 .toolbarButton#resetButton
 {
-	icon: Embed("assets/images/control_start_blue.png");
+	icon: Embed("/assets/images/control_start_blue.png");
 }
 
 .toolbarButton#advanceButton
 {
-	icon: Embed("assets/images/control_fastforward_blue.png");
+	icon: Embed("/assets/images/control_fastforward_blue.png");
 }
 
 .toolbarButton#focusButton
 {
-    icon: Embed("assets/images/eye.png");
+    icon: Embed("/assets/images/eye.png");
 }
 
 .toolbarButton#playPauseButton
 {
-	icon: Embed("assets/images/control_play_blue.png");
-	selectedIcon: Embed("assets/images/control_pause_blue.png");
+	icon: Embed("/assets/images/control_play_blue.png");
+	selectedIcon: Embed("/assets/images/control_pause_blue.png");
 }
 
 s|Button.editSharedObjectButtonStyle
 {
     skinClass: ClassReference("awaybuilder.view.skins.ToolbarToggleButtonSkin");
-	icon: Embed("assets/images/arrow-transition.png");
+	icon: Embed("/assets/images/arrow-transition.png");
 }
 
 s|Button.editParentObjectButtonStyle
 {
 	skinClass: ClassReference("awaybuilder.view.skins.ToolbarToggleButtonSkin");
-	icon: Embed("assets/images/arrow-transition-180.png");
+	icon: Embed("/assets/images/arrow-transition-180.png");
 }
 
 s|Button.addItemButton
 {
 	skinClass: ClassReference("awaybuilder.view.skins.AddButtonSkin");
-	icon: Embed("assets/images/add.png");
+	icon: Embed("/assets/images/add.png");
 }
 
 s|Button.playButton
 {
 	chromeColor: #004F8F;
 	skinClass: ClassReference("awaybuilder.view.skins.ToolbarButtonSkin");
-	icon: Embed("assets/images/control.png");
+	icon: Embed("/assets/images/control.png");
 }
 s|Button.pauseButton
 {
 	chromeColor: #004F8F;
 	skinClass: ClassReference("awaybuilder.view.skins.ToolbarButtonSkin");
-	icon: Embed("assets/images/control-pause.png");
+	icon: Embed("/assets/images/control-pause.png");
 }
 s|Button.stopButton
 {
 	chromeColor: #004F8F;
 	skinClass: ClassReference("awaybuilder.view.skins.ToolbarButtonSkin");
-	icon: Embed("assets/images/control-stop-square.png");
+	icon: Embed("/assets/images/control-stop-square.png");
 }
 s|Button.rewindButton 
 {
 	chromeColor: #004F8F;
 	skinClass: ClassReference("awaybuilder.view.skins.ToolbarButtonSkin");
-	icon: Embed("assets/images/control-stop-180.png");
+	icon: Embed("/assets/images/control-stop-180.png");
 }
 
 s|Button.stepForwardButton
 {
 	chromeColor: #004F8F;
 	skinClass: ClassReference("awaybuilder.view.skins.ToolbarButtonSkin");
-	icon: Embed("assets/images/control-double.png");
+	icon: Embed("/assets/images/control-double.png");
 }
 s|Button.stepBackButton
 {
 	chromeColor: #004F8F;
 	skinClass: ClassReference("awaybuilder.view.skins.ToolbarButtonSkin");
-	icon: Embed("assets/images/control-double-180.png");
+	icon: Embed("/assets/images/control-double-180.png");
 }
 s|Button.addButton
 {
 	chromeColor: #004F8F;
 	skinClass: ClassReference("awaybuilder.view.skins.ToolbarButtonSkin");
-	icon: Embed("assets/images/add.png");
+	icon: Embed("/assets/images/add.png");
 }
 s|Button.removeButton
 {
 	chromeColor: #004F8F;
 	skinClass: ClassReference("awaybuilder.view.skins.ToolbarButtonSkin");
-	icon: Embed("assets/images/delete.png");
+	icon: Embed("/assets/images/delete.png");
 }
 
 awaybuilder|ApplicationSettingsForm s|List
