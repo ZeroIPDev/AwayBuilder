@@ -8,8 +8,8 @@
 5. Point VSCode to to the SDK you setup in Step 1
 6. Press CTRL + P and run the command "ActionScript: Quick Compile and Debug (Experimental)"
 
-Flex SDK: 4.9.1  
-AIR SDK: 3.7  
+Flex SDK: 4.9.1+  
+AIR SDK: 3.7+  
 use _"-swf-version 20"_  
 latest away3d-core: _https://github.com/away3d/away3d-core-fp11/tree/dev_  
 
