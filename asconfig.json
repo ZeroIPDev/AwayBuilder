@@ -17,6 +17,14 @@
 	},
 	"mainClass": "AwayBuilderApplication",
 	"application": "awaybuilder-desktop/src/AwayBuilderApplication-app.xml",
-	"copySourcePathAssets": true,
-	"config": "air"
+	"config": "air",
+	"airOptions": {
+        "files": [
+            {
+                "file": "awaybuilder-desktop/src/assets",
+                "path": "assets"
+            }
+        ],
+		"target": "bundle"
+    }
 }
