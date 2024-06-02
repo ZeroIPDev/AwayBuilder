@@ -7,7 +7,7 @@
 4. Install the VSCode Extension "AS3 & MXML" by Bowler Hat
 5. Open the repo in VSCode
 6. Point VSCode to to the SDK you setup in Step 1
-7. Press CTRL + P and run the command "ActionScript: Quick Compile and Debug (Experimental)"
+7. Press CTRL + P and run the command "ActionScript: Quick Compile and Debug (Experimental)" to debug, or use the builds tasks in the CTRL + B shorcut to assemble a release build
 
 Flex SDK: 4.9.1+  
 AIR SDK: 3.7+  
