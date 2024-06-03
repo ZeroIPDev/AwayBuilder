@@ -171,7 +171,7 @@ package awaybuilder.desktop.model
 			
 			var textureFile:File = textureDirectory.resolvePath(textureName);
 			if (!textureFile.exists){	
-				var textureName:String = textureFile.name;
+				textureName = textureFile.name;
 				textureFile=textureDirectory.resolvePath(textureName);
 				var saveStream:FileStream = new FileStream();
 				saveStream.open(textureFile, FileMode.WRITE);
