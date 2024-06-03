@@ -2,12 +2,11 @@
 
 ## How to build
 1. Follow this guide to install the [Apache Flex SDK with AIR](https://joshblog.net/2024/how-to-install-apache-flex-with-adobe-air-from-harman/)
-2. Run `git clone https://github.com/Away3D/away3d-core-fp11 -b dev` inside this repo
-3. Change line 24 of `away3d-core-fp11/src/away3d/cameras/lenses/PerspectiveLens.as` to  `public function PerspectiveLens(fieldOfView:Number = 60, coordinateSystem:uint = 0)`
-4. Install the VSCode Extension "AS3 & MXML" by Bowler Hat
-5. Open the repo in VSCode
-6. Point VSCode to to the SDK you setup in Step 1
-7. Press CTRL + P and run the command "ActionScript: Quick Compile and Debug (Experimental)" to debug, or use the builds tasks in the CTRL + B shorcut to assemble a release build
+2. Run `git clone https://github.com/Fancy2209/away3d-core-fp11 -b dev` inside this repo
+3. Install the VSCode Extension "AS3 & MXML" by Bowler Hat
+4. Open the repo in VSCode
+5. Point VSCode to to the SDK you setup in Step 1
+6. Press CTRL + P and run the command "ActionScript: Quick Compile and Debug (Experimental)" to debug, or use the builds tasks in the CTRL + B shorcut to assemble a release build
 
 Flex SDK: 4.9.1+  
 AIR SDK: 3.7+  
