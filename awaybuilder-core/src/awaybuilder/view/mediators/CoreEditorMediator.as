@@ -555,6 +555,7 @@ package awaybuilder.view.mediators
 					if(event.type == SceneEvent.SCALE) {
 						var _obj:Object3D = Object3D( assets.GetObject(obj) );
 						if(_obj.extra != null && _obj.extra.Sprite3D != null) {
+							Scene3DManager.removeSprite3D(_obj);
 							_isSprite3D = true;
 						}
 					}
@@ -861,7 +862,7 @@ package awaybuilder.view.mediators
 		}
 		private function applyContainer( asset:ContainerVO ):void
 		{
-			var _issprite3D:Boolean = false;
+			var _isSprite3D:Boolean = false;
 			var obj:ObjectContainer3D = assets.GetObject( asset ) as ObjectContainer3D;
 			obj.extra = new Object();
 			
@@ -872,12 +873,12 @@ package awaybuilder.view.mediators
 
 			// Sprite3D parse
 			if(obj.extra.Sprite3D != null)
-				_issprite3D = true;
+				_isSprite3D = true;
 			else
 				obj.visible = true;
 				Scene3DManager.removeSprite3D(obj);
 
-			applyObject( asset, _issprite3D );
+			applyObject( asset, _isSprite3D );
 		}
 		
 		private function applyObject( asset:ObjectVO, isSprite3D:Boolean = false ):void
@@ -900,10 +901,7 @@ package awaybuilder.view.mediators
 			obj.rotationY = asset.rotationY;
 			obj.rotationZ = asset.rotationZ;
 			
-			if(isSprite3D) {
-				Scene3DManager.removeSprite3D(obj);
-				Scene3DManager.createSprite3D(obj);
-			}
+			if(isSprite3D) Scene3DManager.createSprite3D(obj);
 		}
 		
 		private function applyLight( asset:LightVO ):void
