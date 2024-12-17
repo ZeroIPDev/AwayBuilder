@@ -550,7 +550,16 @@ package awaybuilder.view.mediators
 				} 
 				else 
 				{
-					applyObject( obj );
+					// Sprite3D update
+					var _isSprite3D:Boolean = false;
+					if(event.type == SceneEvent.SCALE) {
+						var _obj:Object3D = Object3D( assets.GetObject(obj) );
+						if(_obj.extra != null && _obj.extra.Sprite3D != null) {
+							_isSprite3D = true;
+						}
+					}
+					// 
+					applyObject( obj, _isSprite3D );
 				}
 			}
 			
@@ -890,8 +899,11 @@ package awaybuilder.view.mediators
 			obj.rotationX = asset.rotationX;
 			obj.rotationY = asset.rotationY;
 			obj.rotationZ = asset.rotationZ;
-
-			if(isSprite3D) Scene3DManager.createSprite3D(obj);
+			
+			if(isSprite3D) {
+				Scene3DManager.removeSprite3D(obj);
+				Scene3DManager.createSprite3D(obj);
+			}
 		}
 		
 		private function applyLight( asset:LightVO ):void

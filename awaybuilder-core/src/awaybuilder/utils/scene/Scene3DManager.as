@@ -296,13 +296,11 @@ package awaybuilder.utils.scene
 			if(s_index > -1) {
 				updateSprite3D(s_index, _sprite);
 			} else {
-				trace("Creating new Sprite", _sprite.name);
 				_sprite3D.push(_sprite);
 				scene.addChild(_sprite);
 				var _obj:ObjectContainer3D = _container as ObjectContainer3D;
 				_obj.visible = false;
 				_container.addEventListener(Object3DEvent.POSITION_CHANGED, updateSprite3DData);
-				_container.addEventListener(Object3DEvent.SCALE_CHANGED, updateSprite3DData);
 			}
 		}
 
@@ -333,11 +331,9 @@ package awaybuilder.utils.scene
 		{
 			var s_index:Number = getSpriteIndexByName(obj.originalName);
 			if(s_index > -1) {
-				trace("Removing Sprite", _sprite3D[s_index].name);
 				scene.removeChild(_sprite3D[s_index]);
 				_sprite3D.removeAt(s_index);
 				obj.removeEventListener(Object3DEvent.POSITION_CHANGED, updateSprite3DData);
-				obj.removeEventListener(Object3DEvent.SCALE_CHANGED, updateSprite3DData);
 			}
 		}
 
