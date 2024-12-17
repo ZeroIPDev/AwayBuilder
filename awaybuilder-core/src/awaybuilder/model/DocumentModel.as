@@ -16,6 +16,7 @@ package awaybuilder.model
 	import awaybuilder.model.vo.scene.ObjectVO;
 	import awaybuilder.model.vo.scene.SkeletonVO;
 	import awaybuilder.model.vo.scene.TextureVO;
+	import awaybuilder.utils.scene.Scene3DManager;
 	
 	import mx.collections.ArrayCollection;
 	import mx.events.CollectionEvent;
@@ -199,6 +200,7 @@ package awaybuilder.model
 			
 			copiedAssets = null;
 			empty = true;
+			Scene3DManager.resetSprite3D();
 		}
 		
 		public function removeAssets( source:ArrayCollection, items:ArrayCollection ):void

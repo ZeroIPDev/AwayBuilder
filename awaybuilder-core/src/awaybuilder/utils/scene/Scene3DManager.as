@@ -86,11 +86,10 @@ package awaybuilder.utils.scene
 
 		public static var assets:AssetsModel;
 		private static var _sprite3D:Vector.<Sprite3D>;
-		private static var _initSprite3D:Boolean = false;
+		private static var _initSprite3D:Boolean;
 		
 		public static function init(scope:UIComponent):void
 		{
-			_sprite3D = new Vector.<Sprite3D>;
 			Scene3DManager.scope = scope;			
 			Scene3DManager.stage = scope.stage;
 			
@@ -257,6 +256,12 @@ package awaybuilder.utils.scene
 					createSprite3D(obj);
 				}
 			}
+		}
+
+		public static function resetSprite3D():void
+		{
+			_sprite3D = new Vector.<Sprite3D>;
+			_initSprite3D = false;
 		}
 
 		public static function createSprite3D(obj:Object3D):void
