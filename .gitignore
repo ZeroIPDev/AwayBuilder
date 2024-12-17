@@ -4,6 +4,7 @@ bin-debug/
 bin-release-temp/
 bin-release/
 out/
+awaybuilder-desktop/bin-release/
 
 # Project property files
 .actionScriptProperties
