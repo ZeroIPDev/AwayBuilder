@@ -292,7 +292,7 @@ package awaybuilder.utils.scene
 
 		private static function renderSprite3D(_sprite:Sprite3D, _container:Object3D):void
 		{
-			var s_index:Number = getSpriteIndexByName(_sprite);
+			var s_index:Number = getSpriteIndexByName(_sprite.originalName);
 			if(s_index > -1) {
 				updateSprite3D(s_index, _sprite);
 			} else {
@@ -306,10 +306,10 @@ package awaybuilder.utils.scene
 			}
 		}
 
-		private static function getSpriteIndexByName(_obj:Object3D):Number
+		private static function getSpriteIndexByName(_name:String):Number
 		{
 			for(var i:Number = 0;i<_sprite3D.length;i++) {
-				if(_sprite3D[i].name == _obj.originalName) return i;
+				if(_sprite3D[i].name == _name) return i;
 			}
 			return -1;
 		}
@@ -325,13 +325,13 @@ package awaybuilder.utils.scene
 
 		private static function updateSprite3DData(e:Object3DEvent):void
 		{
-			var s_index:Number = getSpriteIndexByName(e.object);
+			var s_index:Number = getSpriteIndexByName(e.object.originalName);
 			if(s_index > -1) updateSprite3D(s_index, e.object);
 		}
 
 		public static function removeSprite3D(obj:Object3D):void
 		{
-			var s_index:Number = getSpriteIndexByName(obj);
+			var s_index:Number = getSpriteIndexByName(obj.originalName);
 			if(s_index > -1) {
 				trace("Removing Sprite", _sprite3D[s_index].name);
 				scene.removeChild(_sprite3D[s_index]);

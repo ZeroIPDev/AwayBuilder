@@ -874,7 +874,6 @@ package awaybuilder.view.mediators
 		private function applyObject( asset:ObjectVO, isSprite3D:Boolean = false ):void
 		{
 			var obj:Object3D = Object3D( assets.GetObject(asset) );
-			var _container:Object3D = obj;
 
 			obj.name = asset.name;
 			
