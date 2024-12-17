@@ -288,16 +288,11 @@ package awaybuilder.utils.scene
 
 		private static function renderSprite3D(_sprite:Sprite3D, _container:Object3D):void
 		{
-			var s_index:Number = getSpriteIndexByName(_sprite.originalName);
-			if(s_index > -1) {
-				updateSprite3D(s_index, _sprite);
-			} else {
-				_sprite3D.push(_sprite);
-				scene.addChild(_sprite);
-				var _obj:ObjectContainer3D = _container as ObjectContainer3D;
-				_obj.visible = false;
-				_container.addEventListener(Object3DEvent.POSITION_CHANGED, updateSprite3DData);
-			}
+			_sprite3D.push(_sprite);
+			scene.addChild(_sprite);
+			var _obj:ObjectContainer3D = _container as ObjectContainer3D;
+			_obj.visible = false;
+			_container.addEventListener(Object3DEvent.POSITION_CHANGED, updateSprite3DData);
 		}
 
 		private static function getSpriteIndexByName(_name:String):Number

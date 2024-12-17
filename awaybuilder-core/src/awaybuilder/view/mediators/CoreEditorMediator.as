@@ -876,7 +876,7 @@ package awaybuilder.view.mediators
 				_isSprite3D = true;
 			else
 				obj.visible = true;
-				Scene3DManager.removeSprite3D(obj);
+			Scene3DManager.removeSprite3D(obj);
 
 			applyObject( asset, _isSprite3D );
 		}
