@@ -20,6 +20,7 @@ package awaybuilder.view.mediators
     import away3d.core.base.SubGeometry;
     import away3d.core.base.SubMesh;
     import away3d.entities.Mesh;
+	import away3d.entities.Sprite3D;
     import away3d.entities.TextureProjector;
     import away3d.errors.AnimationSetError;
     import away3d.library.assets.NamedAssetBase;
@@ -157,6 +158,7 @@ package awaybuilder.view.mediators
     import org.robotlegs.mvcs.Mediator;
     
     import spark.collections.Sort;
+    import away3d.core.managers.Stage3DManager;
 
     public class CoreEditorMediator extends Mediator
 	{
@@ -251,7 +253,9 @@ package awaybuilder.view.mediators
             addContextListener(SceneEvent.FOCUS_SELECTION, eventDispatcher_itemsFocusHandler);
 
 			view.stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDownHandler);
-			view.stage.addEventListener(KeyboardEvent.KEY_UP, keyUpHandler);	
+			view.stage.addEventListener(KeyboardEvent.KEY_UP, keyUpHandler);
+
+			Scene3DManager.assets = assets;
 		}
 		
 		//----------------------------------------------------------------------
@@ -848,20 +852,30 @@ package awaybuilder.view.mediators
 		}
 		private function applyContainer( asset:ContainerVO ):void
 		{
+			var _issprite3D:Boolean = false;
 			var obj:ObjectContainer3D = assets.GetObject( asset ) as ObjectContainer3D;
-			applyObject( asset );
-			
 			obj.extra = new Object();
 			
 			for each( var extra:ExtraItemVO in asset.extras )
 			{
 				obj.extra[extra.name] = extra.value;
 			}
+
+			// Sprite3D parse
+			if(obj.extra.Sprite3D != null)
+				_issprite3D = true;
+			else
+				obj.visible = true;
+				Scene3DManager.removeSprite3D(obj);
+
+			applyObject( asset, _issprite3D );
 		}
 		
-		private function applyObject( asset:ObjectVO ):void
+		private function applyObject( asset:ObjectVO, isSprite3D:Boolean = false ):void
 		{
 			var obj:Object3D = Object3D( assets.GetObject(asset) );
+			var _container:Object3D = obj;
+
 			obj.name = asset.name;
 			
 			obj.pivotPoint = new Vector3D( asset.pivotX, asset.pivotY, asset.pivotZ );
@@ -877,6 +891,8 @@ package awaybuilder.view.mediators
 			obj.rotationX = asset.rotationX;
 			obj.rotationY = asset.rotationY;
 			obj.rotationZ = asset.rotationZ;
+
+			if(isSprite3D) Scene3DManager.createSprite3D(obj);
 		}
 		
 		private function applyLight( asset:LightVO ):void

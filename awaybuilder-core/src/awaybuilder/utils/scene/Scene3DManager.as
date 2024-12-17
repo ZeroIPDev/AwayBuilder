@@ -15,6 +15,7 @@ package awaybuilder.utils.scene
 	import away3d.primitives.*;
 	import away3d.textures.*;
 	import away3d.tools.utils.*;
+	import away3d.core.base.Object3D;
 	
 	import awaybuilder.utils.*;
 	import awaybuilder.utils.scene.modes.*;
@@ -23,6 +24,7 @@ package awaybuilder.utils.scene
 	import awaybuilder.view.scene.events.*;
 	import awaybuilder.view.scene.representations.*;
 	import awaybuilder.view.scene.utils.*;
+	import awaybuilder.model.AssetsModel;
 	
 	import flash.display.*;
 	import flash.events.*;
@@ -30,6 +32,7 @@ package awaybuilder.utils.scene
 	
 	import mx.collections.*;
 	import mx.core.*;
+	import away3d.materials.MaterialBase;
 	
 	public class Scene3DManager extends EventDispatcher
 	{
@@ -80,9 +83,14 @@ package awaybuilder.utils.scene
 		
 		private static var _lastCameraPos : Vector3D;
 		private static var _lastCameraRot : Vector3D;
+
+		public static var assets:AssetsModel;
+		private static var _sprite3D:Vector.<Sprite3D>;
+		private static var _initSprite3D:Boolean = false;
 		
 		public static function init(scope:UIComponent):void
 		{
+			_sprite3D = new Vector.<Sprite3D>;
 			Scene3DManager.scope = scope;			
 			Scene3DManager.stage = scope.stage;
 			
@@ -202,7 +210,9 @@ package awaybuilder.utils.scene
 		}
 		
 		private function loop(e:Event):void 
-		{	
+		{
+			if(!_initSprite3D) initSprite3D();
+
 			updateBackgroundGrid();
 			
 			currentGizmo.update();
@@ -232,6 +242,103 @@ package awaybuilder.utils.scene
 
 			if (sceneDoubleClickDetected)
 				doubleClick3DMonitor = true;	
+		}
+
+		private static function initSprite3D():void
+		{
+			var _objects:Vector.<Object>;
+			_objects = assets.GetObjectsByType(ObjectContainer3D);
+			if(_objects.length <= 0) return;
+			_initSprite3D = true;
+			trace("Loading initial Sprite3D");
+			for(var i:Number = 0;i<_objects.length;i++) {
+				var obj:ObjectContainer3D = _objects[i] as ObjectContainer3D;
+				if(obj.extra != null && obj.extra.Sprite3D != null) {
+					createSprite3D(obj);
+				}
+			}
+		}
+
+		public static function createSprite3D(obj:Object3D):void
+		{
+			var _sprite:Sprite3D = getSprite3D(obj.extra.Sprite3D, obj.scaleX, obj.scaleY);
+			_sprite.name = obj.originalName;
+			_sprite.x = obj.x;
+			_sprite.y = obj.y;
+			_sprite.z = obj.z;
+			_sprite.scaleX = obj.scaleX;
+			_sprite.scaleY = obj.scaleY;
+			renderSprite3D(_sprite, obj);
+		}
+
+		private static function getSprite3D(m:String, w:Number, h:Number):Sprite3D
+		{
+			// Passed material name, width & height
+			var _hasmat:Boolean = false
+			var _sprite:Sprite3D = null;
+			var _materials:Vector.<Object>;
+			_materials = assets.GetObjectsByType(MaterialBase);
+			for(var i:Number = 0;i<_materials.length;i++) {
+				if(_materials[i].name == m) {
+					var _mat:MaterialBase = _materials[i] as MaterialBase;
+					_sprite = new Sprite3D(_mat, w, h);
+					_hasmat = true;
+					break;
+				}
+			}
+			if(!_hasmat) throw new Error("Cannot match material " + m); //TODO: improve this
+			return _sprite;
+		}
+
+		private static function renderSprite3D(_sprite:Sprite3D, _container:Object3D):void
+		{
+			var s_index:Number = getSpriteIndexByName(_sprite);
+			if(s_index > -1) {
+				updateSprite3D(s_index, _sprite);
+			} else {
+				trace("Creating new Sprite", _sprite.name);
+				_sprite3D.push(_sprite);
+				scene.addChild(_sprite);
+				var _obj:ObjectContainer3D = _container as ObjectContainer3D;
+				_obj.visible = false;
+				_container.addEventListener(Object3DEvent.POSITION_CHANGED, updateSprite3DData);
+				_container.addEventListener(Object3DEvent.SCALE_CHANGED, updateSprite3DData);
+			}
+		}
+
+		private static function getSpriteIndexByName(_obj:Object3D):Number
+		{
+			for(var i:Number = 0;i<_sprite3D.length;i++) {
+				if(_sprite3D[i].name == _obj.originalName) return i;
+			}
+			return -1;
+		}
+
+		private static function updateSprite3D(index:Number, obj:Object3D):void
+		{
+			_sprite3D[index].x = obj.x;
+			_sprite3D[index].y = obj.y;
+			_sprite3D[index].z = obj.z;
+			_sprite3D[index].scaleX = obj.scaleX;
+			_sprite3D[index].scaleY = obj.scaleY;
+		}
+
+		private static function updateSprite3DData(e:Object3DEvent):void
+		{
+			var s_index:Number = getSpriteIndexByName(e.object);
+			if(s_index > -1) updateSprite3D(s_index, e.object);
+		}
+
+		public static function removeSprite3D(obj:Object3D):void
+		{
+			var s_index:Number = getSpriteIndexByName(obj);
+			if(s_index > -1) {
+				trace("Removing Sprite", _sprite3D[s_index].name);
+				scene.removeChild(_sprite3D[s_index]);
+				_sprite3D.removeAt(s_index);
+				obj.removeEventListener(Object3DEvent.POSITION_CHANGED, updateSprite3DData);
+				obj.removeEventListener(Object3DEvent.SCALE_CHANGED, updateSprite3DData);
+			}
 		}
 
 		private function updateBackgroundGrid() : void {
