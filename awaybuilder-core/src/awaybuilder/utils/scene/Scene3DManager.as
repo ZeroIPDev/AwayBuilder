@@ -274,19 +274,15 @@ package awaybuilder.utils.scene
 		private static function getSprite3D(m:String, w:Number, h:Number):Sprite3D
 		{
 			// Passed material name, width & height
-			var _hasmat:Boolean = false
-			var _sprite:Sprite3D = null;
+			var _sprite:Sprite3D = new Sprite3D(assets.GetObject(assets.defaultMaterial) as MaterialBase, w, h);
 			var _materials:Vector.<Object>;
 			_materials = assets.GetObjectsByType(MaterialBase);
 			for(var i:Number = 0;i<_materials.length;i++) {
 				if(_materials[i].name == m) {
-					var _mat:MaterialBase = _materials[i] as MaterialBase;
-					_sprite = new Sprite3D(_mat, w, h);
-					_hasmat = true;
+					_sprite.material = _materials[i] as MaterialBase;
 					break;
 				}
 			}
-			if(!_hasmat) throw new Error("Cannot match material " + m); //TODO: improve this
 			return _sprite;
 		}
 
