@@ -1,5 +1,8 @@
 # Away Builder
 
+This is a custom fork kept in sync with ![away3d](https://github.com/ZeroIPDev/away3d). New features include:
+- Sprite3D support: Add key-pair `Sprite3D`:`Material name` on ObjectContainer3D
+
 ## How to build
 1. Follow this guide to install the [Apache Flex SDK with AIR](https://joshblog.net/2024/how-to-install-apache-flex-with-adobe-air-from-harman/)
 2. Run `git clone https://github.com/Fancy2209/away3d-core-fp11 -b dev` inside this repo
