@@ -1644,6 +1644,8 @@ package awaybuilder.view.mediators
 		private function eventDispatcher_itemsDeleteHandler(event:SceneEvent):void
 		{
 			for each( var state:DeleteStateVO in event.newValue as Vector.<DeleteStateVO> ) {
+				var obj:ObjectContainer3D = assets.GetObject(state.asset) as ObjectContainer3D;
+				if(obj != null) Scene3DManager.removeSprite3D(obj);
 				var container:ContainerVO = state.owner as ContainerVO;
 				if( container )
 				{
