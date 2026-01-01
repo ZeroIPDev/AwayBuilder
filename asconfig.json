@@ -28,7 +28,8 @@
 		"target": "bundle",
 		"signingOptions": {
 			"keystore": "keystore/key-dev.p12",
-			"storetype": "pkcs12"
+			"storetype": "pkcs12",
+			"tsa": "none"
 		}
     }
 }
