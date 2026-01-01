@@ -13,7 +13,8 @@
 		"defaults-css-files": [
 			"awaybuilder-desktop/src/desktop_styles.css",
 			"awaybuilder-core/src/defaults.css"
-		]
+		],
+		"warnings": false
 	},
 	"mainClass": "AwayBuilderApplication",
 	"application": "awaybuilder-desktop/src/AwayBuilderApplication-app.xml",

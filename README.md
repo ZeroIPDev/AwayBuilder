@@ -9,7 +9,7 @@ This is a custom fork kept in sync with ![away3d](https://github.com/ZeroIPDev/a
 3. Install the VSCode Extension "AS3 & MXML" by Bowler Hat
 4. Open the repo in VSCode
 5. Point VSCode to to the SDK you setup in Step 1
-6. Press CTRL + P and run the command "ActionScript: Quick Compile and Debug (Experimental)" to debug, or use the builds tasks in the CTRL + B shorcut to assemble a release build
+6. Press CTRL + Shift + P and run the command "ActionScript: Quick Compile and Debug (Experimental)" to debug, or use the builds tasks in the CTRL + Shift + B shortcut to assemble a release build
 
 Flex SDK: 4.9.1+  
 AIR SDK: 3.7+  
