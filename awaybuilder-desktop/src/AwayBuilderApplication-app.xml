@@ -39,6 +39,8 @@
 	<!-- Copyright information. Optional -->
  	<copyright>©2013 The Away Foundation</copyright>
 
+	<architecture>64</architecture>
+
 	<!-- Settings for the application's initial window. Required. -->
 	<initialWindow>
 		<!-- The main SWF or HTML file of the application. Required. -->
