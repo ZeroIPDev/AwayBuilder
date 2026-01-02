@@ -1,10 +1,10 @@
 # Away Builder
 
-This is a custom fork kept in sync with ![away3d](https://github.com/ZeroIPDev/away3d). New features include:
+This is a custom fork kept in sync with [away3d](https://github.com/ZeroIPDev/away3d). New features include:
 - Sprite3D support: Add key-pair `Sprite3D`:`Material name` on ObjectContainer3D (context menu option available)
 
 ## Install SDKs
-1. Download ![Apache Flex SDK](https://flex.apache.org/download-binaries.html) and extract to your preferred location
+1. Download [Apache Flex SDK](https://flex.apache.org/download-binaries.html) and extract to your preferred location
 2. Download Adobe AIR SDK ([Windows](https://airdownload.adobe.com/air/win/download/32.0/AdobeAIRSDK.zip)/[Mac](https://airdownload.adobe.com/air/mac/download/32.0/AdobeAIRSDK.dmg)) and extract into the same directory as the Flex SDK, overwriting files if necessary
 3. Copy `env-template.properties` in your SDK folder as `env.properties`
 4. Uncomment `env.AIR_HOME` and point it to the full path of your SDK
