@@ -49,7 +49,7 @@ package awaybuilder.view.scene.controls
 
 		public function updateTransparent(b:Boolean = true): void {
 			_representation.material = new ColorMaterial(0x0000ff, b ? 0.01 : 1);
-			_representation.getChildAt(0).visible = b ? false : true;
+			_representation.getChildAt(0).visible = !b;
 		}
 		
 		protected override function getDefaultBoundingVolume():BoundingVolumeBase {

@@ -86,7 +86,6 @@ package awaybuilder.utils.scene
 
 		public static var assets:AssetsModel;
 		private static var _sprite3D:Vector.<Sprite3D>;
-		private static var _initSprite3D:Boolean;
 		private static var _sprite3DGizmoLen:uint;
 		
 		public static function init(scope:UIComponent):void
@@ -241,7 +240,7 @@ package awaybuilder.utils.scene
 			if (sceneDoubleClickDetected)
 				doubleClick3DMonitor = true;
 
-			if(!_initSprite3D) initSprite3D();
+			initSprite3D();
 			initSprite3DGizmos();
 			
 		}
@@ -250,12 +249,10 @@ package awaybuilder.utils.scene
 		{
 			var _objects:Vector.<Object>;
 			_objects = assets.GetObjectsByType(ObjectContainer3D);
-			if(_objects.length <= 0) return;
-			_initSprite3D = true;
-			trace("Loading initial Sprite3D");
+			if(_objects.length <= _sprite3D.length) return;
 			for(var i:Number = 0;i<_objects.length;i++) {
 				var obj:ObjectContainer3D = _objects[i] as ObjectContainer3D;
-				if(obj.extra != null && obj.extra.Sprite3D != null) {
+				if(obj.extra != null && obj.extra.Sprite3D != null && !doesSprite3DExist(obj)) {
 					createSprite3D(obj);
 				}
 			}
@@ -274,20 +271,24 @@ package awaybuilder.utils.scene
 		public static function resetSprite3D():void
 		{
 			_sprite3D = new Vector.<Sprite3D>;
-			_initSprite3D = false;
 			_sprite3DGizmoLen = 0;
 		}
 
 		public static function createSprite3D(obj:Object3D):void
 		{
 			var _sprite:Sprite3D = getSprite3D(obj.extra.Sprite3D, obj.scaleX, obj.scaleY);
-			_sprite.name = obj.originalName;
+			_sprite.name = getObjectTrueName(obj);
 			_sprite.x = obj.x;
 			_sprite.y = obj.y;
 			_sprite.z = obj.z;
 			_sprite.scaleX = obj.scaleX;
 			_sprite.scaleY = obj.scaleY;
 			renderSprite3D(_sprite, obj);
+		}
+
+		private static function getObjectTrueName(obj:Object3D):String
+		{
+			return obj.originalName != "null" ? obj.originalName : obj.name;
 		}
 
 		private static function getSprite3D(m:String, w:Number, h:Number):Sprite3D
@@ -330,30 +331,36 @@ package awaybuilder.utils.scene
 			return -1;
 		}
 
-		private static function updateSprite3D(index:Number, obj:Object3D):void
+		private static function updateSprite3DbyIndex(index:Number, obj:Object3D):void
 		{
 			_sprite3D[index].x = obj.x;
 			_sprite3D[index].y = obj.y;
 			_sprite3D[index].z = obj.z;
-			_sprite3D[index].scaleX = obj.scaleX;
-			_sprite3D[index].scaleY = obj.scaleY;
 		}
 
 		private static function updateSprite3DData(e:Object3DEvent):void
 		{
-			var s_index:Number = getSpriteIndexByName(e.object.originalName);
-			if(s_index > -1) updateSprite3D(s_index, e.object);
+			var s_index:Number = getSpriteIndexByName(getObjectTrueName(e.object));
+			if(s_index > -1) updateSprite3DbyIndex(s_index, e.object);
 		}
 
-		public static function removeSprite3D(obj:Object3D):void
+		public static function removeSprite3D(obj:Object3D, full:Boolean = true):void
 		{
-			var s_index:Number = getSpriteIndexByName(obj.originalName);
+			var s_index:Number = getSpriteIndexByName(getObjectTrueName(obj));
 			if(s_index > -1) {
 				scene.removeChild(_sprite3D[s_index]);
 				_sprite3D.removeAt(s_index);
-				updateSprite3DGizmo(obj, false);
+				if(full) {
+					updateSprite3DGizmo(obj, false);
+					obj.extra.Sprite3D = null;
+				}
 				obj.removeEventListener(Object3DEvent.POSITION_CHANGED, updateSprite3DData);
 			}
+		}
+
+		private static function doesSprite3DExist(obj:Object3D):Boolean
+		{
+			return getSpriteIndexByName(getObjectTrueName(obj)) > -1;
 		}
 
 		private function updateBackgroundGrid() : void {
