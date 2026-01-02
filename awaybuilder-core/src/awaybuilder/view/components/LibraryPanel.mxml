@@ -57,6 +57,7 @@
 		<fx:Component className="NewObjectsPopup">
 			<s:SkinnablePopUpContainer skinClass="awaybuilder.view.skins.LibrarySkinnablePopUpContainer" chromeColor="0x1d1d1c" color="0xdbdbdb" mouseDownOutside="close();" >
 				<s:Button width="100%" label="New ObjectContainer3D" styleName="addItemButton" cornerRadius="0" click="close(true,'ObjectContainer3D')"/>
+				<s:Button width="100%" label="New Sprite3D" styleName="addItemButton" cornerRadius="0" click="close(true,'Sprite3D')"/>
 				<s:Button width="100%" label="New Mesh" styleName="addItemButton" cornerRadius="0" click="close(true,'Mesh')"/>
 				<s:Button width="100%" label="New SkyBox" styleName="addItemButton" cornerRadius="0" click="close(true,'SkyBox')"/>
 				<s:Button width="100%" label="New Texture Projector" styleName="addItemButton" cornerRadius="0" click="close(true,'TextureProjector')"/>
@@ -82,6 +83,8 @@
 			import spark.components.supportClasses.ButtonBase;
 			import spark.events.IndexChangeEvent;
 			import spark.events.PopUpEvent;
+			import awaybuilder.view.components.events.LibraryPanelEvent;
+			import awaybuilder.view.components.events.LibraryPanelEvent;
 			
 			[Bindable] 
 			public var model:DocumentVO = new DocumentVO();
@@ -192,6 +195,9 @@
 				{
 					case "ObjectContainer3D":
 						this.dispatchEvent( new LibraryPanelEvent( LibraryPanelEvent.ADD_CONTAINER ) );
+						break;
+					case "Sprite3D":
+						this.dispatchEvent( new LibraryPanelEvent( LibraryPanelEvent.ADD_SPRITE ) );
 						break;
 					case "Mesh":
 						this.dispatchEvent( new LibraryPanelEvent( LibraryPanelEvent.ADD_MESH ) );

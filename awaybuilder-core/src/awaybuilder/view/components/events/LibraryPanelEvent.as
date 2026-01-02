@@ -17,6 +17,7 @@ package awaybuilder.view.components.events
 		public static const ADD_CONTAINER:String = "addContainer";
 		public static const ADD_GEOMETRY:String = "addGeometry";
 		public static const ADD_EFFECTMETHOD:String = "addEffectMethod";
+		public static const ADD_SPRITE:String = "addSprite";
 		
 		public static const ADD_DIRECTIONAL_LIGHT:String = "addDirectionalLight";
 		public static const ADD_POINT_LIGHT:String = "addPointLight";

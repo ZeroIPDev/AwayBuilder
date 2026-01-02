@@ -87,6 +87,7 @@ package awaybuilder.utils.scene
 		public static var assets:AssetsModel;
 		private static var _sprite3D:Vector.<Sprite3D>;
 		private static var _initSprite3D:Boolean;
+		private static var _sprite3DGizmoLen:uint;
 		
 		public static function init(scope:UIComponent):void
 		{
@@ -210,8 +211,6 @@ package awaybuilder.utils.scene
 		
 		private function loop(e:Event):void 
 		{
-			if(!_initSprite3D) initSprite3D();
-
 			updateBackgroundGrid();
 			
 			currentGizmo.update();
@@ -240,7 +239,11 @@ package awaybuilder.utils.scene
 			}
 
 			if (sceneDoubleClickDetected)
-				doubleClick3DMonitor = true;	
+				doubleClick3DMonitor = true;
+
+			if(!_initSprite3D) initSprite3D();
+			initSprite3DGizmos();
+			
 		}
 
 		private static function initSprite3D():void
@@ -258,10 +261,21 @@ package awaybuilder.utils.scene
 			}
 		}
 
+		private static function initSprite3DGizmos():void {
+			if(containerGizmos.length <= _sprite3DGizmoLen) return;
+			for(var i:Number = _sprite3DGizmoLen;i<containerGizmos.length;i++) {
+				var obj:ObjectContainer3D = containerGizmos[i].sceneObject;
+				if(obj.extra != null && obj.extra.Sprite3D != null)
+					containerGizmos[i].updateTransparent();
+			}
+			_sprite3DGizmoLen = containerGizmos.length;
+		}
+
 		public static function resetSprite3D():void
 		{
 			_sprite3D = new Vector.<Sprite3D>;
 			_initSprite3D = false;
+			_sprite3DGizmoLen = 0;
 		}
 
 		public static function createSprite3D(obj:Object3D):void
@@ -295,9 +309,17 @@ package awaybuilder.utils.scene
 		{
 			_sprite3D.push(_sprite);
 			scene.addChild(_sprite);
-			var _obj:ObjectContainer3D = _container as ObjectContainer3D;
-			_obj.visible = false;
+			updateSprite3DGizmo(_container);
 			_container.addEventListener(Object3DEvent.POSITION_CHANGED, updateSprite3DData);
+		}
+
+		private static function updateSprite3DGizmo(obj:Object3D, b:Boolean = true):void {
+			var _obj:ObjectContainer3D = obj as ObjectContainer3D;
+			if(_obj.numChildren > 0) {
+				var _empty:ContainerGizmo3D = _obj.getChildAt(0) as ContainerGizmo3D;
+				if(_empty != null)
+					_empty.updateTransparent(b);
+			}
 		}
 
 		private static function getSpriteIndexByName(_name:String):Number
@@ -329,6 +351,7 @@ package awaybuilder.utils.scene
 			if(s_index > -1) {
 				scene.removeChild(_sprite3D[s_index]);
 				_sprite3D.removeAt(s_index);
+				updateSprite3DGizmo(obj, false);
 				obj.removeEventListener(Object3DEvent.POSITION_CHANGED, updateSprite3DData);
 			}
 		}

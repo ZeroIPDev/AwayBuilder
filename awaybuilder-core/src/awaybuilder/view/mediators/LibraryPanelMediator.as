@@ -73,6 +73,7 @@ package awaybuilder.view.mediators
 			addViewListener(LibraryPanelEvent.ADD_GEOMETRY, view_addGeometryHandler);
 			addViewListener(LibraryPanelEvent.ADD_MESH, view_addMeshHandler);
 			addViewListener(LibraryPanelEvent.ADD_CONTAINER, view_addContainerHandler);
+			addViewListener(LibraryPanelEvent.ADD_SPRITE, view_addSpriteHandler);
 			addViewListener(LibraryPanelEvent.ADD_TEXTURE_PROJECTOR, view_addTextureProjectorHandler);
 			addViewListener(LibraryPanelEvent.ADD_SKYBOX, view_addSkyBoxHandler);
 			addViewListener(LibraryPanelEvent.ADD_EFFECTMETHOD, view_addEffectMethodHandler);
@@ -195,6 +196,12 @@ package awaybuilder.view.mediators
 		{
 			var asset:ContainerVO = assets.CreateContainer();
 			this.dispatch(new SceneEvent(SceneEvent.ADD_NEW_CONTAINER,null,asset));
+			this.dispatch(new SceneEvent(SceneEvent.SELECT,[asset]));
+		}
+		private function view_addSpriteHandler(event:LibraryPanelEvent):void
+		{
+			var asset:ContainerVO = assets.CreateContainer();
+			this.dispatch(new SceneEvent(SceneEvent.ADD_NEW_CONTAINER,["Sprite3D"],asset));
 			this.dispatch(new SceneEvent(SceneEvent.SELECT,[asset]));
 		}
 		private function view_addMeshHandler(event:LibraryPanelEvent):void

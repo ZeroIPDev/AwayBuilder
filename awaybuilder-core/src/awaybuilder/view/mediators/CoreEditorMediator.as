@@ -874,8 +874,7 @@ package awaybuilder.view.mediators
 			// Sprite3D parse
 			if(obj.extra.Sprite3D != null)
 				_isSprite3D = true;
-			else
-				obj.visible = true;
+			obj.visible = true;
 			Scene3DManager.removeSprite3D(obj);
 
 			applyObject( asset, _isSprite3D );
@@ -1302,6 +1301,13 @@ package awaybuilder.view.mediators
 			var asset:ContainerVO = event.newValue as ContainerVO;
 			if( asset ) 
 			{
+				if(event.items && event.items[0] == "Sprite3D") {
+					var extra:ExtraItemVO = new ExtraItemVO();
+					extra.name = "Sprite3D";
+					extra.value = "Null";
+					asset.extras = new ArrayCollection();
+					asset.extras.addItem(extra);
+				}
 				applyContainer( asset );
 				updateChildren( asset.children );
 			}

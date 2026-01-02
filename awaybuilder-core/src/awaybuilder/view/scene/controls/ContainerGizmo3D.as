@@ -46,6 +46,10 @@ package awaybuilder.view.scene.controls
 			var dist:Vector3D = Scene3DManager.camera.scenePosition.subtract(_representation.scenePosition);
 			_representation.scaleX = _representation.scaleY = _representation.scaleZ = dist.length / 500;
 		}
+
+		public function updateTransparent(b:Boolean = true): void {
+			_representation.material = new ColorMaterial(0x0000ff, b ? 0.01 : 1);
+		}
 		
 		protected override function getDefaultBoundingVolume():BoundingVolumeBase {
 			return new NullBounds();
