@@ -61,7 +61,7 @@ package
 			var defaultTextFormat:TextFormat = new TextFormat("_sans", 10, 0xDDDDDD); 
 			var text:TextField = new TextField();
 			text.defaultTextFormat = defaultTextFormat;
-			text.text = "©2013 The Away Foundation / 2025 ZeroIP";
+			text.text = "©2013 The Away Foundation / 2026 ZeroIP";
 			text.width = text.textWidth+8;
 			_image.addChild( text );
 			text.x = this.width - text.width - 7;

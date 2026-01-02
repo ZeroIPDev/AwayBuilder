@@ -96,6 +96,8 @@
 		import mx.controls.Alert;
 		import mx.events.CloseEvent;
 		import mx.events.FlexEvent;
+		import flash.net.URLRequest;
+		import flash.net.navigateToURL;
 
 		private var _updatePopup:UpdatePopup;
 		
@@ -112,7 +114,7 @@
 			isMac = (Capabilities.os.indexOf("Mac OS") >= 0); 
 			
 			var urlLoader:URLLoader = new URLLoader();
-			urlLoader.load( new URLRequest( "https://raw.github.com/awaytools/AwayBuilder/master/awaybuilder-core/src/awaybuilder/AwayBuilder.as" ) );
+			urlLoader.load( new URLRequest( "https://raw.github.com/ZeroIPDev/AwayBuilder/master/awaybuilder-core/src/awaybuilder/AwayBuilder.as" ) );
 			urlLoader.addEventListener(Event.COMPLETE, urlLoader_completeHandler );
 			urlLoader.addEventListener(IOErrorEvent.IO_ERROR, function(event:Event):void{ trace( event )} );
         }
@@ -161,44 +163,14 @@
 		{
 			if( event.detail == Alert.OK )
 			{
-				var airLoader:URLLoader = new URLLoader();
-				airLoader.dataFormat = URLLoaderDataFormat.BINARY;
-				airLoader.load( new URLRequest( "https://github.com/awaytools/AwayBuilder/blob/master/awaybuilder-desktop/bin-release/AwayBuilderApplication.air?raw=true" ) );
-				airLoader.addEventListener(Event.COMPLETE, airLoader_completeHandler );
-				airLoader.addEventListener(ProgressEvent.PROGRESS, airLoader_progressHandler );
-				airLoader.addEventListener(IOErrorEvent.IO_ERROR, airLoader_errorHandler );
+				navigateToURL(new URLRequest("https://github.com/ZeroIPDev/AwayBuilder/releases/latest"), "_blank");
+				this.nativeApplication.exit();
 			}
 			else if( event.detail == Alert.CANCEL )
 			{
 				_updateCancelled = true;
 				_updatePopup = null;
 			}
-		}
-		
-		private function airLoader_errorHandler( event:IOErrorEvent ):void
-		{
-			Alert.show( "Update interrupted, try next time" );
-		}
-		
-		private function airLoader_progressHandler( event:ProgressEvent ):void
-		{
-			if( _updatePopup )
-			{
-				_updatePopup.setProgress( event.bytesLoaded, event.bytesTotal );
-			}
-		}
-		private function airLoader_completeHandler( event:Event ):void
-		{
-			if( _updateCancelled ) return;
-			var urlLoader:URLLoader = event.target as URLLoader;
-			
-			var file:File = File.applicationStorageDirectory.resolvePath("awayBuilderInstaller.air");
-			var stream:FileStream = new FileStream();
-			stream.open(file, FileMode.WRITE);
-			stream.writeBytes( urlLoader.data );
-			stream.close();
-			file.openWithDefaultApplication();
-			this.nativeApplication.exit();
 		}
 
 	]]></fx:Script>
